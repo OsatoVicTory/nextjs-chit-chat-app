@@ -1,0 +1,51 @@
+.Message_Call {
+    width: 240px;
+    height: max-content;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(18, 18, 18, 0.045);
+}
+.Message_Call_Icon {
+    width: 42px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.Message_Call_Icon > div {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--white)
+}
+.mci_call_icon {
+    width: 27px;
+    height: 27px;
+}
+.accepted {
+    color: var(--green);
+}
+.missed {
+    color: var(--red);
+}
+.Message_Call_Text {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 50px);
+    margin-left: 10px;
+}
+.mct_top {
+    font-weight: 550;
+    font-size: 14.5px;
+    text-transform: capitalize;
+}
+.mct_base {
+    margin-top: 3px;
+    font-size: 13px;
+    opacity: 0.65;
+}

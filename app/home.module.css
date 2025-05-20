@@ -1,0 +1,72 @@
+.Home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url(../public/bgImage.png);
+    align-items: center;
+}
+.App_Home_Page {
+    width: min(95%, 450px);
+    height: max-content;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--boxshadow);
+    padding: 21px;
+    padding-bottom: 25px;
+}
+.App_Home_Wrapper {
+    width: 100%;
+}
+.AHW {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.AHW h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 810;
+    color: var(--green);
+}
+.AHW h3 {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 23px;
+    font-weight: 700;
+    opacity: 0.75;
+    text-transform: uppercase;
+}
+.AHW p {
+    margin: 0;
+    margin-top: 15px;
+    opacity: 0.75;
+}
+.App_Home_Wrapper input {
+    margin-top: 21px;
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--bordergrey);
+    border-radius: 10px;
+}
+.App_Home_Wrapper input:focus {
+    border: 1px solid #000000;
+}
+.logIn_btn {
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green);
+    border-radius: 10px;
+    color: var(--white);
+}
+.loggingIn_false:hover, .loggingIn_true {
+    opacity: 0.85;
+}

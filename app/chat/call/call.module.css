@@ -1,0 +1,209 @@
+.Call {
+    width: calc(100% - 501px);
+    height: 100%;
+    background-color: rgba(27, 27, 27, 0.6);
+    background-image: url(../../../public/bgImage.png);
+}
+.Call > div, .Call__main {
+    width: 100%;
+    height: 100%;
+}
+.Call__Container {
+    position: relative;
+}
+.Call__Footer > div, .call_top, .userStream {
+    display: flex;
+    align-items: center;
+}
+.Call__main {
+    display: flex;
+    justify-content: center;
+}
+.text-white {
+    color: white;
+}
+.userStream {
+    width: max-content !important; 
+    height: max-content !important;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+.userStream > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(27,27,27,0.8);
+    border: 1px solid transparent;
+}
+.userStream > div svg {
+    width: 18px;
+    height: 18px;
+    color: var(--white);
+}
+.stream_vid {
+    margin-left: 10px;
+}
+.stream_vid_true, .stream_mic_true {
+    animation: pulse 2s infinite;
+}
+div .call_top {
+    flex-direction: column;
+    width: max-content;
+    height: max-content !important;
+    max-width: 100%;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    z-index: 999;
+}
+.placeholder_image {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9;
+    background: transparent;
+}
+.placeholder_image_show {
+    display: block;
+}
+.call_top img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.call_top h3, .call_timer, .call_top span {
+    font-size: 18px;
+    margin-top: 15px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .3), 0 1px 2px rgba(0, 0, 0, .6);
+    /* background: linear-gradient(rgba(32, 33, 36, 0) 1%, rgba(32, 33, 36, .532) 25%, rgba(32, 33, 36, .77)); */
+}
+.call_top h2 {
+    font-size: 16px;
+}
+/* .call_top span, .call_top h2, .call_top h3 {
+    color: var(--white);
+} */
+
+/* .call_top span {
+    background-color: rgba(27,27,27,0.6);
+} */
+.myVideo {
+    width: 180px;
+    height: 180px;
+    border-radius: 16px;
+    object-fit: cover;
+    position: absolute;
+    top: 10px;
+    z-index: 99;
+    right: 10px;
+}
+div .receiverVideo {
+    width: 100%;
+    /* height: calc(100% - 70px); */
+    height: 100%;
+    object-fit: cover;
+}
+.Call__main span {
+    margin-top: 20px;
+}
+.Call__Footer {
+    width: 100%;
+    /* background-color: rgba(27, 27, 27, 0.6); */
+    background: linear-gradient(rgba(32, 33, 36, .6) 1%, rgba(32, 33, 36, .45) 25%, rgba(32, 33, 36, .1));
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    padding: 15px 20px;
+    z-index: 9999;
+}
+.call__Footer {
+    width: max-content;
+}
+.call__Footer > div {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+.call__Footer > div:first-child {
+    margin-left: 0px;
+}
+.mute:hover, .video_button:hover, .cancel:hover {
+    background-color: rgba(255, 255, 255, 0.21);
+    /* background-color: #868686; */
+}
+/* .cancel {
+    background-color: rgba(255, 255, 255, 0.21);
+    margin-left: 30px;
+} */
+.cancel_first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px !important;
+}
+.center {
+    justify-content: center;
+}
+.answer {
+    background-color: var(--green);
+}
+.call_icon {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+}
+.end_icon {
+    color: var(--red) !important;
+}
+.callProfileImage {
+    width: 100px;
+    height: 100px;
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(0.8);
+    }
+}
+@media screen and (max-width: 700px) {
+    .Call {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+    div .receiverVideo {
+        object-fit: cover;
+    }
+}

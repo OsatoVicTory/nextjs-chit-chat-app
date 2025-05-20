@@ -1,0 +1,34 @@
+[
+    {
+       "name": "smileys_people",
+       "length": 524
+    },
+    {
+       "name": "animals_nature",
+       "length": 144
+    },
+    {
+       "name": "food_drink",
+       "length": 132
+    },
+    {
+       "name": "travel_places",
+       "length": 218
+    },
+    {
+       "name": "activities",
+       "length": 86
+    },
+    {
+       "name": "objects",
+       "length": 255
+    },
+    {
+       "name": "symbols",
+       "length": 221
+    },
+    {
+       "name": "flags",
+       "length": 269
+    }
+]

@@ -1,0 +1,140 @@
+div .Emoji_Picker {
+    width: 100%;
+    height: 250px;
+}
+.Emoji_Picker .Emoji_picker {
+    width: 100%;
+    height: 100%;
+}
+.Emoji_picker {
+    background-color: var(--white);
+}
+.Emoji_picker .Emoji_picker_header,
+.Emoji_picker .Emoji_picker_main {
+    width: 100%;
+    padding: 5px;
+}
+.Emoji_picker_header, .Epm_list_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Emoji_picker_header > div {
+    width: 12.5%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.Eph_icon {
+    width: 25px;
+    height: 25px;
+    color: var(--grey);
+}
+.adjust {
+    width: 21px;
+    height: 20px;
+    color: var(--grey);
+}
+.Eph_true {
+    border-bottom: 5px solid var(--darkgreen);
+}
+.Eph_true .Eph_icon {
+    color: var(--darktext);
+}
+.Emoji_picker_main > div {
+    width: 100%;
+}
+.Emoji_picker .Emoji_picker_main {
+    height: calc(100% - 50px);
+}
+.Epm_search input {
+    width: 100%;
+    height: 36px;
+    padding: 10px;
+    border: none;
+    background: var(--stdbackground);
+    outline: none;
+    border-radius: 3px;
+    color: var(--grey);
+    font-size: 15px;
+}
+.Emoji_picker_main .Epm_full_lists {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.Epm_full_lists {
+    padding-right: 3px;
+    margin-top: 5px;
+}
+.Epm_full_lists .Emoji_picker_contents,
+.Emoji_picker_contents .Epm_list,
+.Epm_list .Epm_list_title,
+.Epm_list, .Epm_list_rows,
+.Epm_list_rows .Epm_list_row {
+    width: 100%;
+}
+.Epm_list {
+    margin-top: 10px;
+}
+.Epm_list_title {
+    font-size: 15px;
+    text-transform: capitalize;
+    color: var(--grey);
+    padding-left: 10px;
+}
+.Epm_list_row_item {
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    cursor: pointer;
+    position: relative;
+}
+.Epm_icon {
+    width: 15px;
+    height: 15px;
+    color: var(--grey);
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    z-index: 10;
+    transform: rotate(45deg);
+}
+.Ep__skintones {
+    position: fixed;
+    z-index: 999;
+    width: 240px;
+    height: 50px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    background-color: var(--white);
+    box-shadow: var(--endomodal);
+    display: flex;
+    align-items: center;
+}
+.Ep_skintones_div {
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    cursor: pointer;
+}
+.Ep_skintones_tick {
+    position: fixed;
+    z-index: 999;
+    border-top: 10px solid var(--white);
+    border-right: 5px solid transparent;
+    border-left: 5px  solid transparent;
+}
+.emojiRender {
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.emoji_span {
+    color: transparent;
+}

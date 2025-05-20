@@ -1,0 +1,64 @@
+.wavePlayer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.Message .wavePlayer {
+    margin-bottom: 0px;
+}
+.wP__playpause,
+._waveform_time {
+    display: flex;
+    align-items: center;
+}
+.wP__playpause {
+    cursor: pointer;
+    width: 20px;
+    height: 33px;
+    justify-content: center;
+}
+.wP__icon {
+    width: 18px;
+    height: 18px;
+    color: var(--grey);
+}
+.wavePlayer .wP__waveform__ {
+    width: calc(100% - 70px);
+    position: relative;
+}
+._waveform_loader_ {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 33px;
+}
+._wavefor_loader_ .react_loading_skeleton {
+    line-height: unset !important;
+}
+.wP__waveform__ > div {
+    width: 100%;
+}
+._waveform_ {
+    padding-top: 3px;
+}
+._waveform_time {
+    margin-top: 0px;
+    color: var(--grey);
+    font-size: 13px;
+    /* justify-content: flex-end; */
+}
+.wP__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--green);
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
