@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback, useContext } from "react";
+import React, { useState, useEffect, useRef, useCallback, useContext, Suspense } from "react";
 import Peer from "simple-peer";
 import { Timing, CallProfileImage } from "../../../util/callUtil";
 import { AppContext } from "@/context/app";
@@ -8,8 +8,24 @@ import styles from "../call.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FcEndCall } from "react-icons/fc";
 import { IoMdCall } from "react-icons/io";
+import Skeleton from '@/components/chatList/skeleton';
 
-export default function AudioReceive() {
+
+function AudioCallLoading() {
+
+    return (
+        <div className={styles.Call}>
+            <div className={styles.Call__Container}>
+                <div className={`${styles.Call__main} audio ${styles.Call__main__loading}`}>
+                    <div className={styles.callProfileImage_loading}><Skeleton /></div>
+                    <h3 className="text-white">Loading...</h3>
+                </div>
+            </div>
+        </div>
+    )
+};
+
+function AudioReceive() {
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -143,4 +159,12 @@ export default function AudioReceive() {
             </div>
         </div>
     )
+};
+
+
+export default function AudioReceivePage() {
+
+    <Suspense fallback={<AudioCallLoading />}>
+        <AudioReceive />
+    </Suspense>
 };

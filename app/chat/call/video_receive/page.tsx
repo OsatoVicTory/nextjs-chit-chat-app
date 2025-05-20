@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback, useContext } from "react";
+import React, { useState, useEffect, useRef, useCallback, useContext, Suspense } from "react";
 import { IoMdCall, IoMdMicOff, IoMdMic } from "react-icons/io";
 import { FaVideo, FaVideoSlash } from 'react-icons/fa';
 import Peer from "simple-peer";
@@ -9,8 +9,24 @@ import { AppContext } from "@/context/app";
 import styles from "../call.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FcEndCall } from "react-icons/fc";
+import Skeleton from '@/components/chatList/skeleton';
 
-export default function VideoReceive() {
+
+function VideoCallLoading() {
+
+    return (
+        <div className={styles.Call}>
+            <div className={styles.Call__Container}>
+                <div className={`${styles.Call__main} audio ${styles.Call__main__loading}`}>
+                    <div className={styles.callProfileImage_loading}><Skeleton /></div>
+                    <h3 className="text-white">Loading...</h3>
+                </div>
+            </div>
+        </div>
+    )
+};
+
+function VideoReceive() {
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -90,7 +106,7 @@ export default function VideoReceive() {
 
     useEffect(() => {
         
-        console.log("ringing", ringing, ringing && "ringing good !");
+        // console.log("ringing", ringing, ringing && "ringing good !");
         if(!ringing) return closePage();
 
         // only close since in caller side we would have 
@@ -105,7 +121,7 @@ export default function VideoReceive() {
                 if(myVideoRef.current) myVideoRef.current.srcObject = curStream;
                 // answerCall();
             }).catch(err => {
-                console.log("video receive stream error", err);
+                // console.log("video receive stream error", err);
                 closePage();
             });
 
@@ -204,4 +220,12 @@ export default function VideoReceive() {
             </div>
         </div>
     )
+};
+
+
+export default function VideoReceivePage() {
+
+    <Suspense fallback={<VideoCallLoading />}>
+        <VideoReceive />
+    </Suspense>
 };

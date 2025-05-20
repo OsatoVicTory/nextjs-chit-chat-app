@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback, useContext } from 'react';
+import { useState, useRef, useEffect, useCallback, useContext, Suspense } from 'react';
 import { IoMdMicOff, IoMdMic } from "react-icons/io";
 import { FaVideo, FaVideoSlash } from 'react-icons/fa';
 import Peer, { SignalData } from "simple-peer";
@@ -11,8 +11,24 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { FcEndCall } from 'react-icons/fc';
 import { MessageType } from '@/components/types';
 import { v4 as uuidv4 } from "uuid";
+import Skeleton from '@/components/chatList/skeleton';
 
-export default function VideoCall() {
+
+function VideoCallLoading() {
+
+    return (
+        <div className={styles.Call}>
+            <div className={styles.Call__Container}>
+                <div className={`${styles.Call__main} audio ${styles.Call__main__loading}`}>
+                    <div className={styles.callProfileImage_loading}><Skeleton /></div>
+                    <h3 className="text-white">Loading...</h3>
+                </div>
+            </div>
+        </div>
+    )
+};
+
+function VideoCall() {
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -230,4 +246,12 @@ export default function VideoCall() {
             </div>
         </div>
     )
+};
+
+
+export default function VideoCallPage() {
+
+    <Suspense fallback={<VideoCallLoading />}>
+        <VideoCall />
+    </Suspense>
 };

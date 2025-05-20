@@ -186,6 +186,15 @@ div .receiverVideo {
     align-items: center;
     margin-top: 15px;
 }
+.callProfileImage_loading {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
 @keyframes pulse {
     0% {
         transform: scale(0.8);
