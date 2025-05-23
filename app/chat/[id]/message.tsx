@@ -3,7 +3,7 @@
 import { MessageType, UserType } from "@/components/types";
 import styles from "../chat.module.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { _genHTML } from "@/app/util/_input";
+import { _genHTML } from "@/util/_input";
 import { IoCheckmarkDone } from "react-icons/io5";
 import WavePlayer from "@/components/wave/wavePlayer";
 import MessageCall from "@/components/messageCall/messageCall";

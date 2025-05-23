@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
-import styles from "../chat/call/call.module.css";
+import styles from "@/app/chat/call/call.module.css";
 
 export function Timing({ callAccepted, setDuration } : { callAccepted: boolean, setDuration: (time: number) => void }) {
 

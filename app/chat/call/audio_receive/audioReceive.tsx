@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback, useContext } from "react";
 import Peer from "simple-peer";
-import { Timing, CallProfileImage } from "../../../util/callUtil";
+import { Timing, CallProfileImage } from "@/util/callUtil";
 import { AppContext } from "@/context/app";
 import styles from "../call.module.css";
 import { useRouter } from "next/navigation";

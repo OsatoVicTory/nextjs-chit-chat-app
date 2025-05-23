@@ -1,6 +1,6 @@
 "use client";
 
-import { getEmojiStyles } from "@/app/util/_emoji_render";
+import { getEmojiStyles } from "@/util/_emoji_render";
 import styles from "./picker.module.css";
 
 export default function EmojiRender({ emoji, size } : { emoji: string, size: number}) {

@@ -1,10 +1,10 @@
 "use client";
 
-import useTextEditor from "@/app/hooks/_textEditor";
+import useTextEditor from "@/hooks/_textEditor";
 import styles from "./editor.module.css";
 import { useCallback, useRef, useState } from "react";
 import { MdKeyboardArrowUp } from "react-icons/md";
-import { e_ctrls } from "@/app/util/_input";
+import { e_ctrls } from "@/util/_input";
 import { sendMessageType, UserType } from "../types";
 import { BsEmojiSmile, BsFillMicFill, BsSend } from "react-icons/bs";
 import EmojiPicker from "../emojiPicker/picker";

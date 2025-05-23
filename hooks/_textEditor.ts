@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
-import { _generateHTML, getElementDetails, getSelectionNode, findSelectedFrags, _getSelectionString, _computeLen } from "../util/_input";
+import { _generateHTML, getElementDetails, getSelectionNode, findSelectedFrags, _getSelectionString, _computeLen } from "@/util/_input";
 import styles from "@/components/chatFooter/editor.module.css";
 
 

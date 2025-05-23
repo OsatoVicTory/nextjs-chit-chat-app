@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { MessageType } from "../types";
-import { _genHTMLForList } from "@/app/util/_input";
+import { _genHTMLForList } from "@/util/_input";
 import styles from "./side.module.css";
 
 export default function LastChat({ chat } : { chat: MessageType[] }) {

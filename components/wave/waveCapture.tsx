@@ -5,7 +5,7 @@ import styles from "./waveCapture.module.css";
 import { MdSend, MdDelete } from 'react-icons/md';
 import { AiOutlinePause } from 'react-icons/ai';
 import { BsPause, BsFillMicFill, BsPlayFill } from 'react-icons/bs';
-import useWaveRecorder from '@/app/hooks/_waveEditor';
+import useWaveRecorder from '@/hooks/_waveEditor';
 
 export default function WaveCapture(
     { close, sendVN } : 

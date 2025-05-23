@@ -1,6 +1,5 @@
 "use client";
 
-import { AiOutlineSearch } from "react-icons/ai";
 import { IoCallOutline } from "react-icons/io5";
 import { LuVideo } from "react-icons/lu";
 import styles from "../chat.module.css";

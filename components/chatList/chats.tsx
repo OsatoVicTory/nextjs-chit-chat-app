@@ -2,7 +2,7 @@
 
 import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { ChatListType, DEFAULT_MESSAGE, MessageType, NewMessageType, UserType } from "../types";
-import { _formatDate } from "@/app/util/_util";
+import { _formatDate } from "@/util/_util";
 import styles from "./side.module.css";
 import { AppContext } from "@/context/app";
 import { removeUser } from "@/app/actions/db";

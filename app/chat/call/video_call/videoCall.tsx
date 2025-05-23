@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback, useContext } from 'react';
 import { IoMdMicOff, IoMdMic } from "react-icons/io";
 import { FaVideo, FaVideoSlash } from 'react-icons/fa';
 import Peer, { SignalData } from "simple-peer";
-import { CallProfileImage, Timing } from '../../../util/callUtil';
+import { CallProfileImage, Timing } from '@/util/callUtil';
 import { AppContext } from '@/context/app';
 import styles from "../call.module.css";
 import { useRouter } from 'next/navigation';
