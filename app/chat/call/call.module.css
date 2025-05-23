@@ -1,9 +1,13 @@
-.Call {
+.Call_ {
     width: calc(100% - 501px);
+    height: 100%;
+}
+.Call {
+    width: 100%;
     height: 100%;
     background-color: rgba(27, 27, 27, 0.6);
     background-image: url(../../../public/bgImage.png);
-}
+} 
 .Call > div, .Call__main {
     width: 100%;
     height: 100%;
