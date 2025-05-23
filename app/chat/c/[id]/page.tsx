@@ -1,4 +1,4 @@
-import styles from "../chat.module.css";
+import styles from "../../chat.module.css";
 import Chat from "./chat";
 
 type Params = Promise<{ id: string }>;

@@ -259,7 +259,7 @@ export default function Chats({ chatLists } : { chatLists: ChatListType[] }) {
                     <ul className={styles.chat_lists}>
                         {(search ? searchList : chats).map((chat, idx) => (
                             <li key={`chat-lists-${idx}`} className={styles.chat_list} style={{top: (70 * chat._i) + "px"}}>
-                                <Link href={`/chat/${chat.socketId}`} className="w-full">
+                                <Link href={`/chat/c/${chat.socketId}`} className="w-full">
                                     <div className={`${styles.chat_list_div} w-full`}>
                                         <div className={styles.profile_avatar}>{getProfileAvatar(chat.userName)}</div>
                                         <div className={styles.chat_texts}>

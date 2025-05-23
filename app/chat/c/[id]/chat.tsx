@@ -2,7 +2,7 @@
 
 import { IoCallOutline } from "react-icons/io5";
 import { LuVideo } from "react-icons/lu";
-import styles from "../chat.module.css";
+import styles from "../../chat.module.css";
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { AppContext } from "@/context/app";
 import Message from "./message";
@@ -119,7 +119,7 @@ export default function Chat({ id } : { id: string }) {
     const handleCall = useCallback((type: string) => {
         if(!chat?.userName) return;
         setCalling({ receiverId: id, receiverName: chat.userName });
-        router.push(`/chat/call/${type}_call?back=/chat/${id}`);
+        router.push(`/chat/call/${type}_call?back=/chat/c/${id}`);
     }, [chat?.userName, id]);
 
     return (

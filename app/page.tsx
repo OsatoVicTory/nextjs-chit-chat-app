@@ -53,6 +53,9 @@ export default function Home() {
             {socket && <button className={`${styles.logIn_btn} ${styles[`loggingIn_${loading}`]} pointer`} onClick={handleLogIn}>
               {loading ? "Logging in..." : "Log in"}
             </button>}
+            {!socket && <button className={`${styles.logIn_btn} ${styles[`loggingIn_true`]}`}>
+              Waiting for socket connection...
+            </button>}
           </div>
       </div>
     </div>

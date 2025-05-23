@@ -1,5 +1,5 @@
-import { Suspense } from "react";
-import CallLoading from "../callLoading";
+// import { Suspense } from "react";
+// import CallLoading from "../callLoading";
 import VideoCall from "./videoCall";
 import styles from "../call.module.css";
 
@@ -11,9 +11,7 @@ export default async function VideoCallPage(
 
     return (
         <div className={styles.Call_}>
-            <Suspense fallback={<CallLoading />}>
-                <VideoCall backPage={back} />
-            </Suspense>
+            <VideoCall backPage={back} />
         </div>
     );
 };

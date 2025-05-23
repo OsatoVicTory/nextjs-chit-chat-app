@@ -1,5 +1,5 @@
-import { Suspense } from "react";
-import CallLoading from "../callLoading";
+// import { Suspense } from "react";
+// import CallLoading from "../callLoading";
 import AudioCall from "./audioCall";
 import styles from "../call.module.css";
 
@@ -11,9 +11,7 @@ export default async function AudioCallPage(
 
     return (
         <div className={styles.Call_}>
-            <Suspense fallback={<CallLoading />}>
-                <AudioCall backPage={back} />
-            </Suspense>
+            <AudioCall backPage={back} />
         </div>
     );
 };

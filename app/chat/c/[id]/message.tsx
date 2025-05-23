@@ -1,7 +1,7 @@
 "use client";
 
 import { MessageType, UserType } from "@/components/types";
-import styles from "../chat.module.css";
+import styles from "../../chat.module.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { _genHTML } from "@/util/_input";
 import { IoCheckmarkDone } from "react-icons/io5";

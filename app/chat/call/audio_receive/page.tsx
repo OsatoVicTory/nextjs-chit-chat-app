@@ -1,5 +1,5 @@
-import { Suspense } from "react";
-import CallLoading from "../callLoading";
+// import { Suspense } from "react";
+// import CallLoading from "../callLoading";
 import AudioReceive from "./audioReceive";
 import styles from "../call.module.css";
 
@@ -11,9 +11,7 @@ export default async function AudioReceivePage(
 
     return (
         <div className={styles.Call_}>
-            <Suspense fallback={<CallLoading />}>
-                <AudioReceive backPage={back} />
-            </Suspense>
+            <AudioReceive backPage={back} />
         </div>
     );
 };
