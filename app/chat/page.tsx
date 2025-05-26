@@ -1,6 +1,6 @@
 import styles from "./chat.module.css";
 
-export default function App() {
+export default function ChatAppPage() {
     return (
         <main className={styles.chat_main_home}>
             <div className={`${styles.chat_Main} ${styles.chat_Main_Home} w-full h-full`}>
