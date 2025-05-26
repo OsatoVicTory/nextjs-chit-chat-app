@@ -22,7 +22,7 @@ export default function Home() {
           setSocket(SocketInstance);
       });
     }
-  }, []);
+  }, [socket]);
 
   const handleLogIn = useCallback(async () => {
     if(loading) return;

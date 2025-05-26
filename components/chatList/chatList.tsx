@@ -16,7 +16,7 @@ export default function ChatList() {
 
 async function ChatsParent() {
 
-    const chats : ChatListType[] = await getUsers();
+    const chats : ChatListType[] = await getUsers() || [];
 
     return (
         <Chats chatLists={chats} />

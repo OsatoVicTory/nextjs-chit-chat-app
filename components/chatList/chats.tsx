@@ -236,7 +236,9 @@ export default function Chats({ chatLists } : { chatLists: ChatListType[] }) {
     }, [search, chats]);
 
     return (
-        <aside className={`${styles.Chat_Lists} ${styles[`Chat_Lists_${path}`]}`}>
+        <>
+        {!user && <div><h1>Not logged in</h1></div>}
+        {user && <aside className={`${styles.Chat_Lists} ${styles[`Chat_Lists_${path}`]}`}>
             <header className="w-full">
                 <div className={styles.chat_header}>
                     <div>
@@ -296,6 +298,7 @@ export default function Chats({ chatLists } : { chatLists: ChatListType[] }) {
                 <Ringing callerName={ringing.callerName} callerType={ringing.type} declineCall={declineCall} />
             }
 
-        </aside>
+        </aside>}
+        </>
     );
 };

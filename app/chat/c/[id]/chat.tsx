@@ -35,7 +35,7 @@ export default function Chat({ id } : { id: string }) {
     }, [id]);
 
     useEffect(() => {
-        if(userSocketId.startsWith(id)) {
+        if(id && userSocketId.startsWith(id)) {
             let newChat = null;
             setChats(chats.map((_chat) => {
                 if(_chat.socketId === id) {
@@ -49,7 +49,7 @@ export default function Chat({ id } : { id: string }) {
     }, [userSocketId, id]);
 
     useEffect(() => {
-        if(msg) {
+        if(msg && id) {
             setChats(chats.map((chat) => {
                 if(chat.socketId === id) return { ...chat, chat: [...chat.chat, msg], unread: 0 };
                 else return chat;
@@ -63,13 +63,13 @@ export default function Chat({ id } : { id: string }) {
     }, [msg?.date, id]);
 
     useEffect(() => {
-        if(socket) {
+        if(socket && id) {
             socket.emit("readMessage", { reader: user.socketId, receiver: id });
         }
     }, [socket, id]);
 
     const sendMessage = useCallback((str: string, audio?: Blob, audioDuration?: number) => {
-        if(socket) {
+        if(socket && id) {
             const message : MessageType = {
                 sender: user.socketId,
                 receiver: id,
@@ -117,7 +117,7 @@ export default function Chat({ id } : { id: string }) {
     }, [socket, id, change]);
 
     const handleCall = useCallback((type: string) => {
-        if(!chat?.userName) return;
+        if(!chat?.userName || !id) return;
         setCalling({ receiverId: id, receiverName: chat.userName });
         router.push(`/chat/call/${type}_call?back=/chat/c/${id}`);
     }, [chat?.userName, id]);
@@ -161,7 +161,7 @@ export default function Chat({ id } : { id: string }) {
                 <main>
                     <div className={`${styles.main_chat} w-full`}>
                         <ul className={styles.main_chat_lists}>
-                            {chat.chat.map((message, idx) => (
+                            {chat?.chat && chat.chat.map((message, idx) => (
                                 <li className={`${styles.main_chat_list} w-full`} key={`message-${idx}`}>
                                     <div className={`${message.sender === user.socketId ? styles.By_You : styles.By_Others} ${styles[`By_You_deleted_${message.deleted}`]}`}>
                                         <div className={styles.main_chat_msg}>
@@ -179,9 +179,9 @@ export default function Chat({ id } : { id: string }) {
                     </div>
                 </main>
                 <footer>
-                    <div className={`${styles.chat_footer_wrapper} w-full`}>
+                    {(user && id) &&<div className={`${styles.chat_footer_wrapper} w-full`}>
                         <ChatFooter sendMessage={sendMessage} socket={socket} user={user} id={id} />
-                    </div>
+                    </div>}
                 </footer>
             </div>
         }
