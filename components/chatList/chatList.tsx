@@ -16,10 +16,19 @@ export default function ChatList() {
 
 async function ChatsParent() {
 
-    const chats : ChatListType[] = await getUsers() || [];
+    const res : ChatListType[] | string = await getUsers() || "";
+    const chats : ChatListType[] = typeof res === "string" ? [] : res;
 
-    return (
-        <Chats chatLists={chats} />
-    )
+    if(res === "failed" || res === "") {
+        return (
+            <div className="w-full h-full">
+                <h1>Failed to load data</h1>
+            </div>
+        )
+    } else {
+        return (
+            <Chats chatLists={chats} />
+        )
+    }
 };
 
