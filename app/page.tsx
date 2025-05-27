@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { addNewUser } from "./actions/db";
 import { io } from "socket.io-client";
+import { v4 as uuidv4 } from "uuid";
 import styles from "./home.module.css";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
           setSocket(SocketInstance);
       });
     }
+    document.title = "CHIT-CHAT APP";
   }, [socket]);
 
   const handleLogIn = useCallback(async () => {
@@ -29,11 +31,11 @@ export default function Home() {
     if(socket && socket.id && inputref.current?.value) {
       setLoading(true);
       const userName = inputref.current.value;
-      const cache_id = localStorage.getItem("chit_chat_id") || "";
-      const userData = { userName, socketId: socket.id, lastSeen: "online", cache_id };
+      const user_id = localStorage.getItem("chit_chat_id") || uuidv4();
+      const userData = { userName, socketId: socket.id, lastSeen: "online", user_id };
       setUser(userData);
       await addNewUser(userData);
-      localStorage.setItem("chit_chat_id", socket.id);
+      localStorage.setItem("chit_chat_id", user_id);
       socket.emit("userOnline", userData);
       setLoading(false);
       router.push("/chat");

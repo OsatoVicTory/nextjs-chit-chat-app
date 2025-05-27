@@ -31,14 +31,14 @@ export interface UserType {
     userName: string,
     socketId: string,
     lastSeen: string,
-    cache_id: string,
+    user_id: string,
 }
 
 export const DEFAULT_USER = {
     userName: "",
     socketId: "",
     lastSeen: "",
-    cache_id: "",
+    user_id: "",
 };
 
 export interface MessageType {

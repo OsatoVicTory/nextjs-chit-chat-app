@@ -5,7 +5,7 @@ import { ChatListType, DEFAULT_MESSAGE, MessageType, NewMessageType, UserType } 
 import { _formatDate } from "@/util/_util";
 import styles from "./side.module.css";
 import { AppContext } from "@/context/app";
-import { removeUser } from "@/app/actions/db";
+import { updateUser } from "@/app/actions/db";
 import { LuSearch } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
 import { usePathname, useRouter } from "next/navigation";
@@ -35,8 +35,11 @@ export default function Chats({ chatLists } : { chatLists: ChatListType[] }) {
     }, [pathname]);
     
     useEffect(() => {
-        if(chats.length < 1) setChats(chatLists);
-    }, [chats.length]);
+        if(chats.length < 1) {
+            setChats(chatLists);
+            document.title = "CHIT-CHAT APP";
+        }
+    }, [chats.length, chatLists]);
     
     useEffect(() => {
         if(update.type === "sendMessage") {
@@ -165,9 +168,10 @@ export default function Chats({ chatLists } : { chatLists: ChatListType[] }) {
             });
 
             socket.on("disconnect", async () => {
-                const userData = { ...user, lastSeen: `last seen ${_formatDate(Date.now())}` };
+                const user_id = localStorage.getItem("chit_chat_id") || "";
+                const userData = { ...user, lastSeen: `last seen ${_formatDate(Date.now())}`, user_id };
                 socket.emit("userOffline", userData);
-                await removeUser(userData);
+                await updateUser(userData);
             });
         }
         
@@ -176,9 +180,10 @@ export default function Chats({ chatLists } : { chatLists: ChatListType[] }) {
         return () => {
             // console.log("calling patch from cleanup-useEffect", u);
             if(!u || !s) return;
-            const userData = { ...user, lastSeen: `last seen ${_formatDate(Date.now())}` };
+            const user_id = localStorage.getItem("chit_chat_id") || "";
+            const userData = { ...user, lastSeen: `last seen ${_formatDate(Date.now())}`, user_id };
             s?.emit("userOffline", userData);
-            removeUser(userData); // this is a promise func but since it is the last thing to run no need to await it
+            updateUser(userData); // this is a promise func but since it is the last thing to run no need to await it
         };
 
     }, [socket, user]);
@@ -209,9 +214,10 @@ export default function Chats({ chatLists } : { chatLists: ChatListType[] }) {
 
     const handleLogout = useCallback(async () => {
         if(socket && user) {
-            const userData = { ...user, lastSeen: `last seen ${_formatDate(Date.now())}` };
+            const user_id = localStorage.getItem("chit_chat_id") || "";
+            const userData = { ...user, lastSeen: `last seen ${_formatDate(Date.now())}`, user_id };
             socket.emit("userOffline", userData);
-            await removeUser(userData);
+            await updateUser(userData);
             // router.push("/");
             setSocket(null);
             window.location.href = "/";

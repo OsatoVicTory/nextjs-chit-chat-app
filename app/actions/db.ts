@@ -13,13 +13,13 @@ export const getUsers = async () : Promise<ChatListType[] | string> => {
 };
 
 interface DBUserType extends UserType {
-    cache_id: string,
+    user_id: string,
 };
 
 export const addNewUser = async (data: DBUserType) : Promise<string> => {
     try {
         const chatData = { 
-            userName: data.userName, socketId: data.socketId, unread: 0, cache_id: data.cache_id,
+            userName: data.userName, socketId: data.socketId, unread: 0, user_id: data.user_id,
             _i: 0, chat: [], lastSeen: "online", isTyping: false // in api route page _i is set to db.length
         };
         const res = await fetch(`${URL}/api/chat`, {
@@ -32,7 +32,7 @@ export const addNewUser = async (data: DBUserType) : Promise<string> => {
     }
 };
 
-export const removeUser = async (data: UserType) : Promise<string> => {
+export const updateUser = async (data: DBUserType) : Promise<string> => {
     try {
         const res = await fetch(`${URL}/api/chat`, {
             method: "PATCH",
